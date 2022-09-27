@@ -32,20 +32,22 @@ campoDadosGerados = navegador.find_element(By.NAME,"dados_json")
 
 
 quant_pessoas.clear() # Limpando o campo quantidade de pessoas 
-quant_pessoas.send_keys(30) #Definindo que serão geradas 30 pessoas. 
+quant_pessoas.send_keys(20) #Definindo que serão geradas 20 pessoas. 
 gerar_Pessoas.click() # Clicando no elemento, botão “GERAR PESSOA” 
 
 # Criando uma estrutura Try/Finally para lidar com erros e exceções inesperadas 
 try:
     # Aguardando até 10 segundos para que os dados gerados sejam totalmente carregados na variável dados
     dados =  WebDriverWait(navegador, 10).until(EC.presence_of_element_located((By.ID, "dados_json")))
+
     # Tentando para verificar se os dados em JSON foram recebidos.
     print(dados.get_attribute('value'))
 
     # Transformando a lista de pessoas recebidas em JSON em uma array de objetos pessoas. 
     listaPessoas = json.loads(dados.get_attribute('value'))
      
-    navegador.get("http://projetos.php.local/cadastro_automatico/")
+    navegador.get("http://cadastropessoa.local/")
+    navegador.fullscreen_window()
 
     for pessoa in listaPessoas:
         input_cpf           = navegador.find_element(By.NAME,'input_cpf') 
@@ -65,7 +67,6 @@ try:
         input_bairro        = navegador.find_element(By.NAME,'input_bairro')
         input_cidade        = navegador.find_element(By.NAME,'input_cidade')
         input_estado        = navegador.find_element(By.NAME,'input_estado')
-
         input_cpf.send_keys(pessoa['cpf'])
         input_rg.send_keys(pessoa['rg'])
         input_nome.send_keys(pessoa['nome'])
@@ -82,16 +83,16 @@ try:
         input_numero.send_keys(pessoa['numero'])
         input_bairro.send_keys(pessoa['bairro'])
         input_cidade.send_keys(pessoa['cidade'])
-        input_estado.send_keys(pessoa['estado'])
-        navegador.find_element(By.NAME,'btn_cadaster').click()
+        input_estado.send_keys(pessoa['estado'])              
+        input_cpf.submit()  
+        time.sleep(1)
 
-        time.sleep(2)
-
-
-
-    navegador.close()
+    navegador.find_element(By.ID,'nav-lista-tab').click()    
+    
 finally:
-    navegador.quit()
+    print("Erro de sistema!!!")
+
+print("Fim execução")
 
 
 

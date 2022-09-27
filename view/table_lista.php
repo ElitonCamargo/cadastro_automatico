@@ -1,4 +1,4 @@
-<div class="table-responsive">
+<div class="table-responsive tamanhoTabela">
 <table class="table table-hover">
     <thead>
         <tr>
@@ -33,23 +33,23 @@
                     echo "
                     <tr>
                         <th scope='row'>$pessoa->id</th>                         
-                        <td>$pessoa->cpf</td>
-                        <td>$pessoa->rg</td>
-                        <td>$pessoa->nome</td>
-                        <td>$pessoa->data_nasc</td>
-                        <td>$pessoa->idade</td>
-                        <td>$pessoa->sexo</td>
-                        <td>$pessoa->mae</td>
-                        <td>$pessoa->pai</td>
-                        <td>$pessoa->email</td>
-                        <td>$pessoa->telefone_fixo</td>
-                        <td>$pessoa->celular</td>
-                        <td>$pessoa->cep</td>
-                        <td>$pessoa->endereco</td>
-                        <td>$pessoa->numero</td>
-                        <td>$pessoa->bairro</td>
-                        <td>$pessoa->cidade</td>
-                        <td>$pessoa->estado</td>                       
+                        <td class='colTable'>$pessoa->cpf</td>
+                        <td class='colTable'>$pessoa->rg</td>
+                        <td class='colTable'>$pessoa->nome</td>
+                        <td class='colTable'>$pessoa->data_nasc</td>
+                        <td class='colTable'>$pessoa->idade</td>
+                        <td class='colTable'>$pessoa->sexo</td>
+                        <td class='colTable'>$pessoa->mae</td>
+                        <td class='colTable'>$pessoa->pai</td>
+                        <td class='colTable'>$pessoa->email</td>
+                        <td class='colTable'>$pessoa->telefone_fixo</td>
+                        <td class='colTable'>$pessoa->celular</td>
+                        <td class='colTable'>$pessoa->cep</td>
+                        <td class='colTable'>$pessoa->endereco</td>
+                        <td class='colTable'>$pessoa->numero</td>
+                        <td class='colTable'>$pessoa->bairro</td>
+                        <td class='colTable'>$pessoa->cidade</td>
+                        <td class='colTable'>$pessoa->estado</td>                       
                     </tr>
                     ";
                 }

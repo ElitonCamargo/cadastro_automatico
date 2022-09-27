@@ -1,5 +1,6 @@
 <?php
-if(isset($_POST['input_cpf'])){
+
+if(!empty($_POST)){
     require_once 'class/Pessoa.php';
     $objPessoa = new Pessoa();
     

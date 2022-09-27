@@ -5,25 +5,26 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 import json
 navegador = webdriver.Chrome("C:\chromedriver\chromedriver.exe")
-navegador.get("https://www.4devs.com.br/gerador_de_pessoas")  
+navegador.get("https://www.4devs.com.br/gerador_de_pessoas")
+
 quant_pessoas = navegador.find_element(By.NAME,"txt_qtde")
 gerar_Pessoas = navegador.find_element(By.ID,"bt_gerar_pessoa")
 campoDadosGerados = navegador.find_element(By.NAME,"dados_json")
 
 
 quant_pessoas.clear()
-quant_pessoas.send_keys(30) 
+quant_pessoas.send_keys(20) 
 gerar_Pessoas.click() 
 time.sleep(1)
+
 try:
     
     dados =  WebDriverWait(navegador, 10).until(EC.presence_of_element_located((By.ID, "dados_json")))    
-    print(dados.get_attribute('value'))
-    # dados = '[{"nome": "Caroline Camila Isabella Pires","idade": 70,"cpf": "876.642.564-61","rg": "38.590.845-3","data_nasc": "14/07/1952","sexo": "Feminino","signo": "Câncer","mae": "Antonella Sueli Rita","pai": "Gabriel Nicolas Pires","email": "caroline_camila_pires@p4ed.com","senha": "3gLtJMAjnE","cep": "68628-020","endereco": "Avenida Afonso Leão","numero": 530,"bairro": "Promissão I","cidade": "Paragominas","estado": "PA","telefone_fixo": "(91) 2663-5299","celular": "(91) 98479-2057","altura": "1,65","peso": 67,"tipo_sanguineo": "O-","cor": "vermelho"},{"nome": "Silvana Camila Cláudia Costa","idade": 75,"cpf": "328.218.119-18","rg": "28.287.747-2","data_nasc": "13/06/1947","sexo": "Feminino","signo": "Gêmeos","mae": "Alice Sophia Milena","pai": "Cláudio Ryan Costa","email": "silvanacamilacosta@etirama.com.br","senha": "6HCNJCeeuW","cep": "59025-190","endereco": "Praça Carlos Gomes","numero": 687,"bairro": "Cidade Alta","cidade": "Natal","estado": "RN","telefone_fixo": "(84) 2581-7408","celular": "(84) 99673-4721","altura": "1,73","peso": 71,"tipo_sanguineo": "O-","cor": "vermelho"}]'
     listaPessoas = json.loads(dados.get_attribute('value'))    
     
      
-    navegador.get("http://projetos.php.local/cadastro_automatico/")    
+    navegador.get("http://cadastropessoa.local/")
+    navegador.fullscreen_window()
 
     for pessoa in listaPessoas:  
         input_cpf           = navegador.find_element(By.NAME,'input_cpf') 
@@ -63,8 +64,12 @@ try:
         input_cpf.submit()  
         time.sleep(1)
 
+    navegador.find_element(By.ID,'nav-lista-tab').click()    
+
 finally:
-    navegador.quit()
-    print('Erro')
+    print("Erro de sistema!!!")
+
+print("Fim execução")
+
 
 

@@ -6,6 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Cadastro automatizado</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <style>
+        .colTable{
+            white-space: nowrap;
+        }
+        .tamanhoTabela {
+            height: 80vh;
+            overflow: auto;
+        }
+        body::-webkit-scrollbar {
+            width: 10px;               
+        }
+
+       
+        body::-webkit-scrollbar-thumb {        
+            border-radius: 20px;
+            border: 1px solid;
+            border-color: "#39393a";
+        }
+
+        div::-webkit-scrollbar {
+            width: 10px;     
+            height: 10px;          
+        }
+        div::-webkit-scrollbar-thumb {        
+            border-radius: 20px;
+            border: 1px solid;
+            border-color: "#39393a";
+        }
+
+    </style>
 </head>
 
 <body>
